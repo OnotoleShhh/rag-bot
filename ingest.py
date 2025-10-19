@@ -3,7 +3,7 @@ from pathlib import Path
 from sentence_transformers import SentenceTransformer
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(dotenv_path=".env", override=True)
 EMBED_MODEL = os.getenv("EMBED_MODEL")
 
 def read_docs():

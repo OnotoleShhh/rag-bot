@@ -1,9 +1,13 @@
 import os, faiss, numpy as np, requests
 from dotenv import load_dotenv
 
-load_dotenv()
-MODEL = os.getenv("MODEL", "llama3.1:8b-instruct")
-OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
+load_dotenv(dotenv_path=".env", override=True)
+MODEL = os.getenv("MODEL")
+OLLAMA_URL = os.getenv("OLLAMA_URL")
+
+print("MODEL =", os.getenv("MODEL"))
+print("OLLAMA_URL =", os.getenv("OLLAMA_URL"))
+print("EMBED_MODEL =", os.getenv("EMBED_MODEL"))
 
 # load index + metadata
 index = faiss.read_index("storage/index.faiss")
